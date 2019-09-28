@@ -6,28 +6,26 @@ class ToDoContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
-            todos: ['walk dog', 'throw rocks', 'eat garbage']
+            todos: ['walk dog', 'throw rocks', 'eat garbage'],
         }
+        this.removeTodo = this.removeTodo.bind(this)
     }
 
-    removeTodo(){
-        alert('yo yo yo')
-        this.setState = {
-            // we'll filter the todos once, the ToDo take the function
-            todos: this.state.todos
-        }
+    removeTodo(todo){
+        this.setState(st => ({
+            todos: st.todos.filter(t => t !== todo)
+        }))
     }
 
-    handleClick(){
-        this.removeTodo()
-    }
 
     render(){
         return (
         <div className="App">
             <ul>
                 {
-                    this.state.todos.map((todo) => <ToDo item={todo} />)
+                    this.state.todos.map((todo) => 
+                        <ToDo item={todo} remove={this.removeTodo}
+                    />)
                 }
             </ul>
         </div>

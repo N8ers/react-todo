@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import './App.css';
 
 class ToDo extends Component {
+    
     constructor(props){
         super(props)
         this.handleRemove = this.handleRemove.bind(this)
     }
 
-    handleRemove(evt) {
+    handleRemove(e) {
         this.props.remove(this.props.item)
     }
 

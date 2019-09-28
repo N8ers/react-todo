@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import ToDo from './ToDo';
+import AddToDo from './AddToDo';
 import './App.css';
 
 class ToDoContainer extends Component {
+
     constructor(props){
         super(props)
         this.state = {
             todos: ['walk dog', 'throw rocks', 'eat garbage'],
         }
         this.removeTodo = this.removeTodo.bind(this)
+        this.addTodo = this.addTodo.bind(this)
     }
 
     removeTodo(todo){
@@ -17,6 +20,9 @@ class ToDoContainer extends Component {
         }))
     }
 
+    addTodo(newTodo){
+        alert('i am in the todocontainer!')
+    }
 
     render(){
         return (
@@ -28,6 +34,7 @@ class ToDoContainer extends Component {
                     />)
                 }
             </ul>
+            <AddToDo add={this.addTodo} />
         </div>
         );
     }

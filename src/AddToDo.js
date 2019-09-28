@@ -7,15 +7,17 @@ class AddToDo extends Component {
         this.handleAdd = this.handleAdd.bind(this)
     }
 
-    handleAdd(){
-        alert('clicked')
+    handleAdd(e){
+        let newItem = document.getElementById('newItem').value
+        this.props.add(newItem)
+        // make input empty again
+        // newItem = ''
     }
 
     render() {
         return(
             <div>
-                <p>Add a todo!</p>
-                <input type="text" />
+                <input id="newItem" type="text" name="newToDo" />
                 <button onClick={this.handleAdd}>+</button>
             </div>
         )

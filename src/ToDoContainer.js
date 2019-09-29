@@ -21,7 +21,10 @@ class ToDoContainer extends Component {
     }
 
     addTodo(newTodo){
-        alert('i am in the todocontainer!')
+        this.setState({
+            todos: [...this.state.todos, newTodo]
+        })
+        this.emptyValue = ''
     }
 
     render(){
@@ -34,7 +37,7 @@ class ToDoContainer extends Component {
                     />)
                 }
             </ul>
-            <AddToDo add={this.addTodo} />
+            <AddToDo add={this.addTodo} value={this.emptyValue} />
         </div>
         );
     }

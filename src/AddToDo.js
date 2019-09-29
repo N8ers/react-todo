@@ -10,8 +10,7 @@ class AddToDo extends Component {
     handleAdd(e){
         let newItem = document.getElementById('newItem').value
         this.props.add(newItem)
-        // make input empty again
-        // newItem = ''
+        document.getElementById('newItem').value = ''
     }
 
     render() {

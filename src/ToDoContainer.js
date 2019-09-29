@@ -24,7 +24,6 @@ class ToDoContainer extends Component {
         this.setState({
             todos: [...this.state.todos, newTodo]
         })
-        this.emptyValue = ''
     }
 
     render(){

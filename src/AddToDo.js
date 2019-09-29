@@ -4,7 +4,11 @@ class AddToDo extends Component {
 
     constructor(props){
         super(props)
+        this.state = {
+            inputVisible: false
+        }
         this.handleAdd = this.handleAdd.bind(this)
+        this.showInput = this.showInput.bind(this)
     }
 
     handleAdd(e){
@@ -13,11 +17,28 @@ class AddToDo extends Component {
         document.getElementById('newItem').value = ''
     }
 
+    showInput(){
+        this.setState({
+            inputVisible: true
+        })
+    }
+
     render() {
         return(
             <div>
-                <input id="newItem" type="text" name="newToDo" />
-                <button onClick={this.handleAdd}>+</button>
+                {
+                    this.state.inputVisible && 
+                    <div>
+                        <input id="newItem" type="text" name="newToDo" />
+                        <br />
+                        <button onClick={this.handleAdd}>/\</button>
+                    </div>
+                }
+                
+                {
+                    !this.state.inputVisible &&
+                    <button onClick={this.showInput}>+</button>
+                }
             </div>
         )
     }

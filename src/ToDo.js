@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './ToDo.css'
 
 class ToDo extends Component {
     
@@ -13,9 +14,9 @@ class ToDo extends Component {
 
     render() {
         return(
-            <div>
-                <span>{this.props.item}</span>
-                <button onClick={this.handleRemove}>x</button>
+            <div className="ToDoItem">
+                <span className="ToDoContent">{this.props.item}</span>
+                <button className="ToDoX" onClick={this.handleRemove}>x</button>
             </div>
         )
     }

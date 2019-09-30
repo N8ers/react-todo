@@ -1,0 +1,11 @@
+.ToDoItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ToDoContent {
+
+}
+
+.ToDoX {
+}

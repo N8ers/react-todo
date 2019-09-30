@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ToDo from './ToDo';
 import AddToDo from './AddToDo';
-import './App.css';
+import './ToDoContainer.css'
 
 class ToDoContainer extends Component {
 
@@ -28,7 +28,7 @@ class ToDoContainer extends Component {
 
     render(){
         return (
-        <div className="App">
+        <div className="ToDoContainer">
             <ul>
                 {
                     this.state.todos.map((todo) => 

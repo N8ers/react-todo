@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AddToDo.css'
 
 class AddToDo extends Component {
 
@@ -13,13 +14,18 @@ class AddToDo extends Component {
 
     handleAdd(e){
         let newItem = document.getElementById('newItem').value
-        this.props.add(newItem)
-        document.getElementById('newItem').value = ''
+        
+        if(newItem.length < 1){
+            this.showInput()
+        } else {
+            this.props.add(newItem)
+            document.getElementById('newItem').value = ''
+        }
     }
 
     showInput(){
         this.setState({
-            inputVisible: true
+            inputVisible: !this.state.inputVisible
         })
     }
 
@@ -31,13 +37,13 @@ class AddToDo extends Component {
                     <div>
                         <input id="newItem" type="text" name="newToDo" />
                         <br />
-                        <button onClick={this.handleAdd}>/\</button>
+                        <button className="pushBtn" onClick={this.handleAdd}>/\</button>
                     </div>
                 }
                 
                 {
                     !this.state.inputVisible &&
-                    <button onClick={this.showInput}>+</button>
+                    <button className="addBtn" onClick={this.showInput}>+</button>
                 }
             </div>
         )

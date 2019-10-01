@@ -1,0 +1,17 @@
+.addBtn{
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+}
+
+.pushBtn{
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+}

@@ -37,13 +37,18 @@ class AddToDo extends Component {
                     <div>
                         <input id="newItem" type="text" name="newToDo" />
                         <br />
-                        <button className="pushBtn" onClick={this.handleAdd}>/\</button>
+                        <button className="pushBtn" onClick={this.handleAdd}>
+                            <i className="plus arrow up"></i>
+                        </button>
                     </div>
                 }
-                
+
                 {
                     !this.state.inputVisible &&
-                    <button className="addBtn" onClick={this.showInput}>+</button>
+                    <div>
+                        <br />
+                        <button className="addBtn" onClick={this.showInput}>+</button>
+                    </div>
                 }
             </div>
         )

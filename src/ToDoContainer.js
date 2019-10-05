@@ -25,6 +25,7 @@ class ToDoContainer extends Component {
     }
 
     addTodo(newTodo){
+        console.log(newTodo)
         this.setState({
             todos: [...this.state.todos, newTodo]
         })
@@ -36,11 +37,15 @@ class ToDoContainer extends Component {
             <ul>
                 {
                     this.state.todos.map((todo) => 
-                        <ToDo id={todo.id} item={todo.todoItem} remove={this.removeTodo}
+                        <ToDo 
+                            id={todo.id} 
+                            item={todo.todoItem} 
+                            remove={this.removeTodo}
+                            key={todo.id}
                     />)
                 }
             </ul>
-            <AddToDo add={this.addTodo} value={this.emptyValue} />
+            <AddToDo addNewTodo={this.addTodo} />
         </div>
         );
     }

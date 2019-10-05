@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import uuid from 'uuid/v4';
 import './AddToDo.css'
 
 class AddToDo extends Component {
@@ -6,20 +7,28 @@ class AddToDo extends Component {
     constructor(props){
         super(props)
         this.state = {
+            todoItem: '',
             inputVisible: false
         }
         this.handleAdd = this.handleAdd.bind(this)
         this.showInput = this.showInput.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        })
     }
 
     handleAdd(e){
-        let newItem = document.getElementById('newItem').value
+        e.preventDefault()
         
-        if(newItem.length < 1){
+        if(this.state.todoItem.length < 1){
             this.showInput()
         } else {
-            this.props.add(newItem)
-            document.getElementById('newItem').value = ''
+            this.props.addNewTodo({...this.state, id: uuid(), completed: false})
+            this.setState({ todoItem: '' })
         }
     }
 
@@ -34,13 +43,19 @@ class AddToDo extends Component {
             <div>
                 {
                     this.state.inputVisible && 
-                    <div>
-                        <input id="newItem" type="text" name="newToDo" />
+                    <form onSubmit={this.handleAdd}>
+                        <input 
+                            type="text" 
+                            name="todoItem"
+                            id="todoItem" 
+                            value={this.state.todoItem}
+                            onChange={this.handleChange}
+                            />
                         <br />
-                        <button className="pushBtn" onClick={this.handleAdd}>
+                        <button className="pushBtn">
                             <i className="plus arrow up"></i>
                         </button>
-                    </div>
+                    </form>
                 }
 
                 {

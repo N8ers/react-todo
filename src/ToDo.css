@@ -1,6 +1,13 @@
 .ToDoItem {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid rgb(153,105,199, 0.85);
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.todoBtns {
+    margin-right: 20px;
 }
 
 .ToDoContent {
@@ -8,31 +15,28 @@
 }
 
 .ToDoEdit {
-    margin-right: 20px;
     border: 1px solid black;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    /* border-radius: 50%; */
+    /* height: 20px; */
+    /* width: 20px; */
     justify-content: center;
-    font-weight: bold;
+    /* font-weight: bold; */
 } 
 
 .ToDoEditSave {
-    margin-right: 20px;
     border: 1px solid black;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     height: 20px;
-    width: 40px;
+    width: 50px;
     justify-content: center;
     font-weight: bold;
 }
 
 .ToDoX {
-    margin-right: 20px;
     border: 1px solid black;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    /* border-radius: 50%; */
+    /* height: 20px; */
+    /* width: 20px; */
     justify-content: center;
     font-weight: bold;
 }

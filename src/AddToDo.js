@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import uuid from 'uuid/v4';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons'
+
 import './AddToDo.css'
 
 class AddToDo extends Component {
@@ -53,7 +56,7 @@ class AddToDo extends Component {
                             />
                         <br />
                         <button className="pushBtn">
-                            <i className="plus arrow up"></i>
+                            <FontAwesomeIcon icon={faChevronUp} />
                         </button>
                     </form>
                 }
@@ -62,7 +65,9 @@ class AddToDo extends Component {
                     !this.state.inputVisible &&
                     <div>
                         <br />
-                        <button className="addBtn" onClick={this.showInput}>+</button>
+                        <button className="addBtn" onClick={this.showInput}>
+                            <FontAwesomeIcon icon={faPlus} />
+                        </button>
                     </div>
                 }
             </div>

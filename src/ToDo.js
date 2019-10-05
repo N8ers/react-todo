@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle, faEdit } from '@fortawesome/free-solid-svg-icons'
 import './ToDo.css'
 
 class ToDo extends Component {
@@ -55,9 +57,13 @@ class ToDo extends Component {
                         <input  type="checkbox" onClick={this.handleCompletion} checked={this.props.status} /> 
                         <span className="ToDoContent">{this.props.item}</span>
                     </span>
-                    <span>
-                        <button className="ToDoEdit" onClick={this.handleToggleEdit}>/</button>
-                        <button className="ToDoX" onClick={this.handleRemove}>x</button>
+                    <span className="todoBtns">
+                        <button className="ToDoEdit" onClick={this.handleToggleEdit}>
+                            <FontAwesomeIcon icon={faEdit} />
+                        </button>
+                        <button className="ToDoX" onClick={this.handleRemove}>
+                            <FontAwesomeIcon icon={faTimesCircle} />
+                        </button>
                     </span>
                 </div>
             )
@@ -71,12 +77,13 @@ class ToDo extends Component {
                         name='todo'
                         onChange={this.handleChange}   
                     />
-                    <span>
+                    <span className="todoBtns">
                         <button className="ToDoEditSave">save</button>
                         <button 
                             className="ToDoX" 
-                            onClick={this.handleRemove}
-                        >x</button>
+                            onClick={this.handleRemove}>
+                            <FontAwesomeIcon icon={faTimesCircle} />
+                        </button>
                     </span>
                 </form>
             )

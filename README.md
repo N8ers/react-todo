@@ -10,3 +10,8 @@ wanna run it locally?
 2) npm install
 3) npm run start
 
+### upcoming features
+
+-tabs that organize completed tasks and uncompleted tasks
+-login 
+-database access so you can save your tasks

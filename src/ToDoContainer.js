@@ -8,16 +8,20 @@ class ToDoContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
-            todos: ['walk dog', 'throw rocks', 'eat garbage'],
+            todos: [
+                {todoItem: 'walk dog', completed: false, id: '1'}, 
+                {todoItem: 'throw rocks', completed: false, id: '2'}, 
+                {todoItem: 'eat garbage', completed: false, id: '3'}
+            ],
         }
         this.removeTodo = this.removeTodo.bind(this)
         this.addTodo = this.addTodo.bind(this)
     }
 
-    removeTodo(todo){
-        this.setState(st => ({
-            todos: st.todos.filter(t => t !== todo)
-        }))
+    removeTodo(id){
+        this.setState({
+            todos: this.state.todos.filter(todo => todo.id !== id)
+        })
     }
 
     addTodo(newTodo){
@@ -32,7 +36,7 @@ class ToDoContainer extends Component {
             <ul>
                 {
                     this.state.todos.map((todo) => 
-                        <ToDo item={todo} remove={this.removeTodo}
+                        <ToDo id={todo.id} item={todo.todoItem} remove={this.removeTodo}
                     />)
                 }
             </ul>

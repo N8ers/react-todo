@@ -8,8 +8,8 @@ class ToDo extends Component {
         this.handleRemove = this.handleRemove.bind(this)
     }
 
-    handleRemove(e) {
-        this.props.remove(this.props.item)
+    handleRemove() {
+        this.props.remove(this.props.id)
     }
 
     render() {

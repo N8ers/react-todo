@@ -1,7 +1,16 @@
 .ToDoContainer {
     background-color: #ccc;
-    border: 1px solid black;
+    border-top: 1px solid black;
     max-width: 500px;
     min-width: 400px;
+    height: 500px;
     margin: 0 auto;
+    overflow-y: scroll; 
+}
+
+.Todos{
+}
+
+.addTodo {
+    float: bottom;
 }

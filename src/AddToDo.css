@@ -33,11 +33,12 @@
     font-weight: bold;
 }
 
+/* .addTodoForm {
+    margin: 0 auto;
+    margin-top: 35vh;
+    padding-bottom: 20px;
+} */
+
 .pushBtn:hover {
     background-color: #ccc;
 }
-
-.up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }

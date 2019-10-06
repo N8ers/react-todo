@@ -43,7 +43,7 @@ class AddToDo extends Component {
 
     render() {
         return(
-            <div>
+            <div className="addTodoForm">
                 {
                     this.state.inputVisible && 
                     <form onSubmit={this.handleAdd}>
@@ -53,6 +53,7 @@ class AddToDo extends Component {
                             id="todoItem" 
                             value={this.state.todoItem}
                             onChange={this.handleChange}
+                            placeholder="Add a to do..."
                             />
                         <br />
                         <button className="pushBtn">

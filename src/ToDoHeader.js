@@ -16,7 +16,7 @@ class ToDoHeader extends Component {
         return (
             <div className="ToDoHeader">
                 <FontAwesomeIcon className="cog-icon" icon={faCog} />
-                <h1>to do</h1>
+                <h1>todo</h1>
                 <h5>{date}</h5>
             </div>
         );

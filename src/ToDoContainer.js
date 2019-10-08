@@ -12,18 +12,6 @@ class ToDoContainer extends Component {
                 {todoItem: 'walk dog', completed: false, id: '1'}, 
                 {todoItem: 'throw rocks', completed: true, id: '2'}, 
                 {todoItem: 'eat garbage', completed: false, id: '3'},
-                {todoItem: 'walk dog', completed: false, id: '4'}, 
-                {todoItem: 'throw rocks', completed: true, id: '5'}, 
-                {todoItem: 'eat garbage', completed: false, id: '6'},
-                {todoItem: 'walk dog', completed: false, id: '7'}, 
-                {todoItem: 'throw rocks', completed: true, id: '8'}, 
-                {todoItem: 'eat garbage', completed: false, id: '9'},
-                {todoItem: 'walk dog', completed: false, id: '10'}, 
-                {todoItem: 'throw rocks', completed: true, id: '12'}, 
-                {todoItem: 'eat garbage', completed: false, id: '13'},
-                {todoItem: 'walk dog', completed: false, id: '14'}, 
-                {todoItem: 'throw rocks', completed: true, id: '15'}, 
-                {todoItem: 'eat garbage', completed: false, id: '17'},
             ],
         }
         this.removeTodo = this.removeTodo.bind(this)

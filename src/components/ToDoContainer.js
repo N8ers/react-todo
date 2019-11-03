@@ -60,9 +60,22 @@ class ToDoContainer extends Component {
         return (
             <div className="ToDoContainer">
 
-                <h4>{storeTodoList.todos[0].todoItem}</h4>
-                <h4>{storeTodoList.todos[1].todoItem}</h4>
-                <h4>{storeTodoList.todos[2].todoItem}</h4>
+                <ul className="ToDos">
+                    {
+                        storeTodoList.todos.map((todo) =>
+                            <ToDo
+                                id={todo.id}
+                                item={todo.todoItem}
+                                remove={this.removeTodo}
+                                edit={this.editTodo}
+                                toggleStatus={this.toggleCompletionStatus}
+                                key={todo.id}
+                                status={todo.completed}
+                            />)
+                    }
+                </ul>
+                <br />
+                <AddToDo className="addTodo" addNewTodo={this.addTodo} />
 
                 {/* <ul className="ToDos">
                     {

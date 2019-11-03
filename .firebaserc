@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "react-todo-sheryak",
+    "react-todo": "react-todo-sheryak"
+  }
+}

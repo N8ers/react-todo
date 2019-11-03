@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import ToDo from './ToDo';
 import AddToDo from './AddToDo';
+import { connect } from 'react-redux';
 import '../styles/ToDoContainer.css'
 
 class ToDoContainer extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            todos: [
-                { todoItem: 'walk dog', completed: false, id: '1' },
-                { todoItem: 'collect rocks', completed: true, id: '2' },
-                { todoItem: 'eat vegetables', completed: false, id: '3' },
-            ],
-        }
+        // this.state = {
+        //     todos: [
+        //         { todoItem: 'walk dog', completed: false, id: '1' },
+        //         { todoItem: 'collect rocks', completed: true, id: '2' },
+        //         { todoItem: 'eat vegetables', completed: false, id: '3' },
+        //     ],
+        // }
         this.removeTodo = this.removeTodo.bind(this)
         this.addTodo = this.addTodo.bind(this)
         this.toggleCompletionStatus = this.toggleCompletionStatus.bind(this)
@@ -53,9 +54,17 @@ class ToDoContainer extends Component {
     }
 
     render() {
+
+        const { storeTodoList } = this.props;
+
         return (
             <div className="ToDoContainer">
-                <ul className="ToDos">
+
+                <h4>{storeTodoList.todos[0].todoItem}</h4>
+                <h4>{storeTodoList.todos[1].todoItem}</h4>
+                <h4>{storeTodoList.todos[2].todoItem}</h4>
+
+                {/* <ul className="ToDos">
                     {
                         this.state.todos.map((todo) =>
                             <ToDo
@@ -70,10 +79,16 @@ class ToDoContainer extends Component {
                     }
                 </ul>
                 <br />
-                <AddToDo className="addTodo" addNewTodo={this.addTodo} />
+                <AddToDo className="addTodo" addNewTodo={this.addTodo} /> */}
             </div>
         );
     }
 }
 
-export default ToDoContainer;
+const mapStateToProps = (state) => {
+    return {
+        storeTodoList: state.StoreToDos
+    }
+}
+
+export default connect(mapStateToProps)(ToDoContainer);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ToDo from './ToDo';
 import AddToDo from './AddToDo';
-import './ToDoContainer.css'
+import '../styles/ToDoContainer.css'
 
 class ToDoContainer extends Component {
 

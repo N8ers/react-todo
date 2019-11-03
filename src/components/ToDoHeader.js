@@ -3,10 +3,7 @@ import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCog } from '@fortawesome/free-solid-svg-icons'
 
-
-
-
-import './ToDoHeader.css'
+import '../styles/ToDoHeader.css'
 
 class ToDoHeader extends Component {
 

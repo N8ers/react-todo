@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import ToDoContainer from './ToDoContainer';
-import ToDoHeader from './ToDoHeader';
+import React, { Component } from 'react';
+import ToDoContainer from './components/ToDoContainer';
+import ToDoHeader from './components/ToDoHeader';
 import './App.css';
 
 class App extends Component {
-  render(){
+  render() {
     return (
       <div className="App">
         <ToDoHeader />

@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import uuid from 'uuid/v4';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-import './AddToDo.css'
+import '../styles/AddToDo.css'
 
 class AddToDo extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             todoItem: '',
@@ -18,43 +18,43 @@ class AddToDo extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(e){
+    handleChange(e) {
         this.setState({
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
-    handleAdd(e){
+    handleAdd(e) {
         e.preventDefault()
-        
-        if(this.state.todoItem.length < 1){
+
+        if (this.state.todoItem.length < 1) {
             this.showInput()
         } else {
-            this.props.addNewTodo({...this.state, id: uuid(), completed: false})
+            this.props.addNewTodo({ ...this.state, id: uuid(), completed: false })
             this.setState({ todoItem: '' })
         }
     }
 
-    showInput(){
+    showInput() {
         this.setState({
             inputVisible: !this.state.inputVisible
         })
     }
 
     render() {
-        return(
+        return (
             <div className="addTodoForm">
                 {
-                    this.state.inputVisible && 
+                    this.state.inputVisible &&
                     <form onSubmit={this.handleAdd}>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             name="todoItem"
-                            id="todoItem" 
+                            id="todoItem"
                             value={this.state.todoItem}
                             onChange={this.handleChange}
                             placeholder="Add a to do..."
-                            />
+                        />
                         <br />
                         <button className="pushBtn">
                             <FontAwesomeIcon icon={faChevronUp} />

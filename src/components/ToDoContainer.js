@@ -3,18 +3,13 @@ import ToDo from './ToDo';
 import AddToDo from './AddToDo';
 import { connect } from 'react-redux';
 import '../styles/ToDoContainer.css'
+import { deleteItem } from '../store/actions/deleteAction';
+import { bindActionCreators } from 'redux';
 
 class ToDoContainer extends Component {
 
     constructor(props) {
         super(props)
-        // this.state = {
-        //     todos: [
-        //         { todoItem: 'walk dog', completed: false, id: '1' },
-        //         { todoItem: 'collect rocks', completed: true, id: '2' },
-        //         { todoItem: 'eat vegetables', completed: false, id: '3' },
-        //     ],
-        // }
         this.removeTodo = this.removeTodo.bind(this)
         this.addTodo = this.addTodo.bind(this)
         this.toggleCompletionStatus = this.toggleCompletionStatus.bind(this)
@@ -22,9 +17,12 @@ class ToDoContainer extends Component {
     }
 
     removeTodo(id) {
-        this.setState({
-            todos: this.state.todos.filter(todo => todo.id !== id)
-        })
+        // this.setState({
+        //     todos: this.state.todos.filter(todo => todo.id !== id)
+        // })
+
+        this.props.deleteItem(id)
+
     }
 
     toggleCompletionStatus(id) {
@@ -77,22 +75,6 @@ class ToDoContainer extends Component {
                 <br />
                 <AddToDo className="addTodo" addNewTodo={this.addTodo} />
 
-                {/* <ul className="ToDos">
-                    {
-                        this.state.todos.map((todo) =>
-                            <ToDo
-                                id={todo.id}
-                                item={todo.todoItem}
-                                remove={this.removeTodo}
-                                edit={this.editTodo}
-                                toggleStatus={this.toggleCompletionStatus}
-                                key={todo.id}
-                                status={todo.completed}
-                            />)
-                    }
-                </ul>
-                <br />
-                <AddToDo className="addTodo" addNewTodo={this.addTodo} /> */}
             </div>
         );
     }
@@ -104,4 +86,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ToDoContainer);
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        deleteItem: deleteItem
+    }, dispatch
+    )
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(ToDoContainer);

@@ -20,9 +20,10 @@ class ToDoContainer extends Component {
         // this.setState({
         //     todos: this.state.todos.filter(todo => todo.id !== id)
         // })
-
+        console.log("TODOCONTAINER")
+        console.log(id)
         this.props.deleteItem(id)
-
+        // console.log(storeTodoList.todos)
     }
 
     toggleCompletionStatus(id) {
@@ -54,6 +55,7 @@ class ToDoContainer extends Component {
     render() {
 
         const { storeTodoList } = this.props;
+        console.log("storeTodoList", storeTodoList)
 
         return (
             <div className="ToDoContainer">

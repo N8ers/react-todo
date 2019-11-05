@@ -11,6 +11,11 @@ const fetchToDoListReducer = (state = initState, action) => {
     case 'FETCH_TODOS':
       console.log('fetch todos', action.todo)
       return state;
+    case 'DELETE_ITEM':
+      console.log('delete id!:', action.id, action.type)
+      console.log("Action: ", action)
+      return { todos: state.todos.filter(todo => todo.id !== action.id) }
+    // return { todos: [...state.todos, { todoItem: 'REDUX', completed: false, id: '4' }] }
     default:
       return state;
   }

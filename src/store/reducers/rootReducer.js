@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import fetchToDoListReducer from './fetchToDoListReducer';
+import todos from './TodoListReducer';
 
 const rootReducer = combineReducers({
-  StoreToDos: fetchToDoListReducer
+  todoList: todos
 })
 
 export default rootReducer;

@@ -4,6 +4,8 @@ import AddToDo from './AddToDo';
 import { connect } from 'react-redux';
 import '../styles/ToDoContainer.css'
 import { deleteItem } from '../store/actions/deleteAction';
+import { addItem } from '../store/actions/addTodoAction';
+import { toggleItem } from '../store/actions/toggleTodoAction';
 import { bindActionCreators } from 'redux';
 
 class ToDoContainer extends Component {
@@ -17,23 +19,11 @@ class ToDoContainer extends Component {
     }
 
     removeTodo(id) {
-        // this.setState({
-        //     todos: this.state.todos.filter(todo => todo.id !== id)
-        // })
-        console.log("TODOCONTAINER")
-        console.log(id)
         this.props.deleteItem(id)
-        // console.log(storeTodoList.todos)
     }
 
     toggleCompletionStatus(id) {
-        const updateStatus = this.state.todos.map(todo => {
-            if (todo.id === id) {
-                return { ...todo, completed: !todo.completed }
-            }
-            return todo;
-        })
-        this.setState({ todos: updateStatus })
+        this.props.toggleItem(id)
     }
 
     editTodo(id, editedTodoItem) {
@@ -47,22 +37,19 @@ class ToDoContainer extends Component {
     }
 
     addTodo(newTodo) {
-        this.setState({
-            todos: [...this.state.todos, newTodo]
-        })
+        this.props.addItem(newTodo)
     }
 
     render() {
 
-        const { storeTodoList } = this.props;
-        console.log("storeTodoList", storeTodoList)
+        const { todoList } = this.props;
 
         return (
             <div className="ToDoContainer">
 
                 <ul className="ToDos">
                     {
-                        storeTodoList.todos.map((todo) =>
+                        todoList.todos.map((todo) =>
                             <ToDo
                                 id={todo.id}
                                 item={todo.todoItem}
@@ -84,13 +71,15 @@ class ToDoContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        storeTodoList: state.StoreToDos
+        todoList: state.todoList
     }
 }
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        deleteItem: deleteItem
+        deleteItem: deleteItem,
+        addItem: addItem,
+        toggleItem: toggleItem
     }, dispatch
     )
 }

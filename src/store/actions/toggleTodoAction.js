@@ -1,10 +1,9 @@
 // Action Creator
-export const deleteItem = (id) => {
+export const toggleItem = (id) => {
 
   // Action (type & payload)
   return {
-    type: 'DELETE_TODO',
+    type: 'TOGGLE_TODO',
     id: id
   }
 }
-

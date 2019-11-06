@@ -9,13 +9,14 @@ class ToDo extends Component {
         super(props)
         this.state = ({
             editMode: false,
-            todo: this.props.item,
         })
+
         this.handleRemove = this.handleRemove.bind(this)
         this.handleToggleEdit = this.handleToggleEdit.bind(this)
         this.handleSaveEdit = this.handleSaveEdit.bind(this)
         this.handleCompletion = this.handleCompletion.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.newTodo = ''
     }
 
     handleRemove() {
@@ -31,19 +32,20 @@ class ToDo extends Component {
     }
 
     handleChange(e) {
-        this.setState({
+        this.newTodo = ({
             [e.target.name]: e.target.value
         })
-        console.log('handleChange: ', this.state.todo)
     }
 
     handleSaveEdit(e) {
         e.preventDefault()
 
-        if (this.state.todo.length < 1) {
+        if (this.props.item < 1) {
             alert("Hey! That was empty!")
         } else {
-            this.props.edit(this.props.id, this.state.todo)
+            let eTodo = this.newTodo.todo;
+            let editedTodo = { editedTodo: eTodo, id: this.props.id }
+            this.props.edit(editedTodo)
         }
 
         this.handleToggleEdit()
@@ -54,7 +56,7 @@ class ToDo extends Component {
             return (
                 <div className="ToDoItem">
                     <span>
-                        <input type="checkbox" onClick={this.handleCompletion} checked={this.props.status} />
+                        <input type="checkbox" onChange={this.handleCompletion} checked={this.props.status} />
                         <span className="ToDoContent">{this.props.item}</span>
                     </span>
                     <span className="todoBtns">
@@ -73,7 +75,6 @@ class ToDo extends Component {
                     <input
                         className="ToDoContent"
                         placeholder={this.props.item}
-                        value={this.state.todo}
                         name='todo'
                         onChange={this.handleChange}
                     />

@@ -6,6 +6,7 @@ import '../styles/ToDoContainer.css'
 import { deleteItem } from '../store/actions/deleteAction';
 import { addItem } from '../store/actions/addTodoAction';
 import { toggleItem } from '../store/actions/toggleTodoAction';
+import { editItem } from '../store/actions/editTodoAction';
 import { bindActionCreators } from 'redux';
 
 class ToDoContainer extends Component {
@@ -26,14 +27,8 @@ class ToDoContainer extends Component {
         this.props.toggleItem(id)
     }
 
-    editTodo(id, editedTodoItem) {
-        const updateItem = this.state.todos.map(todo => {
-            if (todo.id === id) {
-                return { ...todo, todoItem: editedTodoItem }
-            }
-            return todo;
-        })
-        this.setState({ todos: updateItem })
+    editTodo(todo) {
+        this.props.editItem(todo)
     }
 
     addTodo(newTodo) {
@@ -79,7 +74,8 @@ const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
         deleteItem: deleteItem,
         addItem: addItem,
-        toggleItem: toggleItem
+        toggleItem: toggleItem,
+        editItem: editItem
     }, dispatch
     )
 }

@@ -1,13 +1,27 @@
-const initState = {
-  todos: [
-    { todoItem: 'REDUX walk dog', completed: false, id: '1' },
-    { todoItem: 'REDUX collect rocks', completed: true, id: '2' },
-    { todoItem: 'REDUX eat vegetables', completed: false, id: '3' },
-  ],
-}
+// cool playlist https://www.youtube.com/watch?v=tgEpOpaVr0Q
 
-const todoListReducer = (state = initState, action) => {
+// const firebase = require("firebase");
+// require("firebase/firestore");
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAV2mB1qx9mtC6RNN0ER4wCd_VVZF2Z9Bw",
+//   authDomain: "react-todo-sheryak.firebaseapp.com",
+//   databaseURL: "https://react-todo-sheryak.firebaseio.com",
+//   projectId: "react-todo-sheryak",
+//   storageBucket: "react-todo-sheryak.appspot.com",
+//   messagingSenderId: "877856213045",
+//   appId: "1:877856213045:web:795b53164bbeb34799097c"
+// };
+
+// firebase.initializeApp(firebaseConfig)
+// const db = firebase.firestore()
+// db.settings({ timestampsInSnapshots: true })
+
+const todoListReducer = (state = {}, action) => {
   switch (action.type) {
+
+    case 'FETCH_TODOS':
+      return action.payload
 
     case 'ADD_TODO':
       return { todos: [...state.todos, action.newTodo] };

@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ToDo from './ToDo';
 import AddToDo from './AddToDo';
 import { connect } from 'react-redux';
-import '../styles/ToDoContainer.css'
+import '../styles/ToDoContainer.css';
+import _ from 'lodash';
 import { deleteItem } from '../store/actions/deleteAction';
 import { addItem } from '../store/actions/addTodoAction';
 import { toggleItem } from '../store/actions/toggleTodoAction';
 import { editItem } from '../store/actions/editTodoAction';
-import { bindActionCreators } from 'redux';
+import { fetchItems } from '../store/actions/fetchAction';
 
 class ToDoContainer extends Component {
 
@@ -17,6 +18,11 @@ class ToDoContainer extends Component {
         this.addTodo = this.addTodo.bind(this)
         this.toggleCompletionStatus = this.toggleCompletionStatus.bind(this)
         this.editTodo = this.editTodo.bind(this)
+        this.renderTodos = this.renderTodos.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.fetchItems()
     }
 
     removeTodo(id) {
@@ -35,30 +41,32 @@ class ToDoContainer extends Component {
         this.props.addItem(newTodo)
     }
 
+    renderTodos() {
+        const { todos } = this.props
+
+        return _.map(todos, (todo, key) => {
+            return (
+                <ToDo
+                    key={key}
+                    id={todo.id}
+                    item={todo.todoItem}
+                    remove={this.removeTodo}
+                    edit={this.editTodo}
+                    toggleStatus={this.toggleCompletionStatus}
+                    status={todo.completed}
+                />
+            )
+        })
+    }
+
     render() {
-
-        const { todoList } = this.props;
-
         return (
             <div className="ToDoContainer">
-
                 <ul className="ToDos">
-                    {
-                        todoList.todos.map((todo) =>
-                            <ToDo
-                                id={todo.id}
-                                item={todo.todoItem}
-                                remove={this.removeTodo}
-                                edit={this.editTodo}
-                                toggleStatus={this.toggleCompletionStatus}
-                                key={todo.id}
-                                status={todo.completed}
-                            />)
-                    }
+                    {this.renderTodos()}
                 </ul>
                 <br />
                 <AddToDo className="addTodo" addNewTodo={this.addTodo} />
-
             </div>
         );
     }
@@ -66,18 +74,9 @@ class ToDoContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        todoList: state.todoList
+        todos: state.todos
     }
 }
 
-const matchDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        deleteItem: deleteItem,
-        addItem: addItem,
-        toggleItem: toggleItem,
-        editItem: editItem
-    }, dispatch
-    )
-}
-
-export default connect(mapStateToProps, matchDispatchToProps)(ToDoContainer);
+export default connect(mapStateToProps,
+    { deleteItem, addItem, toggleItem, editItem, fetchItems })(ToDoContainer);

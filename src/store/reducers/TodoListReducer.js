@@ -24,7 +24,8 @@ const todoListReducer = (state = {}, action) => {
       return action.payload
 
     case 'ADD_TODO':
-      return { todos: [...state.todos, action.newTodo] };
+      console.log("ADD_TODO: ", action.payload)
+      return state;
 
     case 'DELETE_TODO':
       return { todos: state.todos.filter(todo => todo.id !== action.id) }

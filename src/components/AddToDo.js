@@ -30,7 +30,12 @@ class AddToDo extends Component {
         if (this.state.todoItem.length < 1) {
             this.showInput()
         } else {
-            this.props.addNewTodo({ ...this.state, id: uuid(), completed: false })
+            let newTodoData = {
+                todoItem: this.state.todoItem,
+                id: uuid(),
+                completed: false
+            }
+            this.props.addTodo(newTodoData)
             this.setState({ todoItem: '' })
         }
     }

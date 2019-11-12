@@ -66,7 +66,7 @@ class ToDoContainer extends Component {
                     {this.renderTodos()}
                 </ul>
                 <br />
-                <AddToDo className="addTodo" addNewTodo={this.addTodo} />
+                <AddToDo className="addTodo" addTodo={this.addTodo} />
             </div>
         );
     }

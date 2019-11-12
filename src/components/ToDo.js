@@ -20,7 +20,7 @@ class ToDo extends Component {
     }
 
     handleRemove() {
-        this.props.remove(this.props.id)
+        this.props.remove(this.props.todoKey)
     }
 
     handleToggleEdit() {
@@ -82,7 +82,7 @@ class ToDo extends Component {
                         <button className="ToDoEditSave">save</button>
                         <button
                             className="ToDoX"
-                            onClick={this.handleRemove}>
+                            onClick={this.props.remove}>
                             <FontAwesomeIcon icon={faTimesCircle} />
                         </button>
                     </span>

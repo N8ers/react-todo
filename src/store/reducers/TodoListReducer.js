@@ -28,6 +28,7 @@ const todoListReducer = (state = {}, action) => {
       return state;
 
     case 'DELETE_TODO':
+      console.log('DELETE_TODO')
       return { todos: state.todos.filter(todo => todo.id !== action.id) }
 
     case 'TOGGLE_TODO':

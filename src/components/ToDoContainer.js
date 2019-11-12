@@ -47,7 +47,7 @@ class ToDoContainer extends Component {
         return _.map(todos, (todo, key) => {
             return (
                 <ToDo
-                    key={key}
+                    todoKey={key}
                     id={todo.id}
                     item={todo.todoItem}
                     remove={this.removeTodo}

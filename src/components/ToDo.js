@@ -43,9 +43,7 @@ class ToDo extends Component {
         if (this.props.item < 1) {
             alert("Hey! That was empty!")
         } else {
-            let eTodo = this.newTodo.todo;
-            let editedTodo = { editedTodo: eTodo, id: this.props.id }
-            this.props.edit(editedTodo)
+            this.props.edit(this.props.todoKey, this.newTodo.todo)
         }
 
         this.handleToggleEdit()

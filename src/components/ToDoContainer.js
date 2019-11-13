@@ -33,8 +33,8 @@ class ToDoContainer extends Component {
         this.props.toggleItem(todoKey, status)
     }
 
-    editTodo(todo) {
-        this.props.editItem(todo)
+    editTodo(todoKey, editedTodo) {
+        this.props.editItem(todoKey, editedTodo)
     }
 
     addTodo(newTodo) {

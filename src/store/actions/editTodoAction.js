@@ -1,9 +1,6 @@
-// Action Creator
-export const editItem = (todo) => {
+import { db } from '../../config/fbConfig';
 
-  // Action (type & payload)
-  return {
-    type: 'EDIT_TODO',
-    todo: todo
-  }
+// Action Creator
+export const editItem = (todoKey, editedTodo) => {
+  return dispatch => db.child(todoKey).update({ 'todoItem': editedTodo })
 }

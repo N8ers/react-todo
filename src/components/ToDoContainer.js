@@ -29,8 +29,8 @@ class ToDoContainer extends Component {
         this.props.deleteItem(id)
     }
 
-    toggleCompletionStatus(id) {
-        this.props.toggleItem(id)
+    toggleCompletionStatus(todoKey, status) {
+        this.props.toggleItem(todoKey, status)
     }
 
     editTodo(todo) {

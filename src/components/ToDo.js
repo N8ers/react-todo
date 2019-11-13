@@ -28,7 +28,7 @@ class ToDo extends Component {
     }
 
     handleCompletion() {
-        this.props.toggleStatus(this.props.id)
+        this.props.toggleStatus(this.props.todoKey, this.props.status)
     }
 
     handleChange(e) {

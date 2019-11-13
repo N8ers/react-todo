@@ -1,9 +1,6 @@
-// Action Creator
-export const toggleItem = (id) => {
+import { db } from '../../config/fbConfig';
 
-  // Action (type & payload)
-  return {
-    type: 'TOGGLE_TODO',
-    id: id
-  }
+// Action Creator
+export const toggleItem = (todoKey, status) => {
+  return dispatch => db.child(todoKey).update({ 'completed': !status })
 }

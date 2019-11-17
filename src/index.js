@@ -8,11 +8,9 @@ import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './store/reducers/rootReducer';
-import AppRouter from './routes/AppRouter';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-// ReactDOM.render(<Provider store={store}><AppRouter /></Provider>, document.getElementById('root'));
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

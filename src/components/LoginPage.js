@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
-import moment from 'moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCog } from '@fortawesome/free-solid-svg-icons'
-import '../styles/ToDoHeader.css'
 
-class ToDoHeader extends Component {
+class LoginPage extends Component {
 
   render() {
-    const date = moment().format('dddd, MMMM Do');
-
     return (
-      <div className="ToDoHeader">
-        <FontAwesomeIcon className="cog-icon" icon={faCog} />
-        <h1>todo</h1>
-        <h5>{date}</h5>
+      <div>
+        <p>You don't need to log in to use the app, </p>
+        <p>but you won't be able to save your work</p>
+
+        <form>
+          <p>login / signup</p>
+          <div>
+            <span>email:</span>
+            <input type="text" />
+          </div>
+          <div>
+            <span>password:</span>
+            <input type="password" />
+          </div>
+        </form>
+
       </div>
     );
   }
 }
 
-export default ToDoHeader;
+export default LoginPage

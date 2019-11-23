@@ -18,7 +18,11 @@ class LoginPage extends Component {
             <span>password:</span>
             <input type="password" />
           </div>
+          <button>login</button>
+          <button>signup</button>
         </form>
+
+        <button>signout</button>
 
       </div>
     );

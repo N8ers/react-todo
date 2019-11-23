@@ -7,6 +7,21 @@ const loginModalReducer = (state = { login: false }, action) => {
         login: !state.login
       };
 
+    case 'LOGIN':
+      return {
+        ...state
+      }
+
+    case 'SIGNUP':
+      return {
+        ...state
+      }
+
+    case 'LOGOUT':
+      return {
+        ...state
+      }
+
     default:
       return state;
   }
